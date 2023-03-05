@@ -23,8 +23,16 @@ Channel
   .splitText(by:5) 
   .view { "\n${count = count + 5 }: ${it.toUpperCase().trim()}\n" }
 
-
 // Closure 4
+
+def f = file('data/randomFacts.txt')
+def lines = f.text.split('\n')
+def count = 0
+for (String row : lines) {
+  log.info "${count++} ${row.toUpperCase().trim()}"
+}
+
+// Closure 5
 
 String isValidPath(String filePath) {
     File file = new File(filePath)
